@@ -1,29 +1,29 @@
 name: CI - Node.js
 
-on:<br/>
+on:
   push:<br/>
-    branches: [ main ]<br/>
-    pull_request:<br/>
+    branches: [ main ]
+    pull_request:
       branches: [ main ]
       
-jobs:<br/>
-  build-test:<br/>
+jobs:
+  build-test:
     runs-on: ubuntu-latest
     
-steps:<br/>
+steps:
   - name: Baixar código do repositório<br/>
     uses: actions/checkout@v4
     
-  - name: Configurar Node.js<br/>
-    uses: actions/setup-node@v4<br/>
-    with:<br/>
+  - name: Configurar Node.js
+    uses: actions/setup-node@v4
+    with:
       node-version: 20
       
-  - name: Instalar dependências<br/>
+  - name: Instalar dependências
     run: npm install
     
-  - name: Rodar testes<br/>
+  - name: Rodar testes
     run: npm test
     
-  - name: Build<br/>
+  - name: Build
     run: npm run build
